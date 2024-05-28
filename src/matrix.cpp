@@ -54,3 +54,32 @@ void Matrix::multiplyRow(const Matrix& A, const Matrix& B, Matrix& result, int r
         }
     }
 }
+
+
+Matrix Matrix::add(const Matrix& other) const {
+    if (rows_ != other.rows_ || cols_ != other.cols_) {
+        throw std::invalid_argument("Matrix dimensions do not match for addition.");
+    }
+
+    Matrix result(rows_, cols_);
+    for (int i = 0; i < rows_; ++i) {
+        for (int j = 0; j < cols_; ++j) {
+            result.data_[i][j] = data_[i][j] + other.data_[i][j];
+        }
+    }
+    return result;
+}
+
+Matrix Matrix::subtract(const Matrix& other) const {
+    if (rows_ != other.rows_ || cols_ != other.cols_) {
+        throw std::invalid_argument("Matrix dimensions do not match for subtraction.");
+    }
+
+    Matrix result(rows_, cols_);
+    for (int i = 0; i < rows_; ++i) {
+        for (int j = 0; j < cols_; ++j) {
+            result.data_[i][j] = data_[i][j] - other.data_[i][j];
+        }
+    }
+    return result;
+}

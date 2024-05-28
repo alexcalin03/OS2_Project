@@ -9,7 +9,13 @@ public:
     Matrix(int rows, int cols);
     void fillRandom();
     Matrix multiply(const Matrix& other) const;
+    Matrix add(const Matrix& other) const;
+    Matrix subtract(const Matrix& other) const;
+
     void print() const;
+
+    int getRows() const { return rows_; }
+    int getCols() const { return cols_; }
 
    
 
