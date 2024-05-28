@@ -8,8 +8,10 @@ class Matrix {
 public:
     Matrix(int rows, int cols);
     void fillRandom();
-    Matrix multiply(const Matrix& other);
+    Matrix multiply(const Matrix& other) const;
     void print() const;
+
+   
 
 private:
     int rows_;
